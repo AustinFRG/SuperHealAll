@@ -1,0 +1,6 @@
+healed-msg: "&aHealed all players successfully!"
+reloaded-msg: "&cBasicInfo config file reloaded successfully!"
+
+heal-perm-required: "superhealall.heal"
+reload-perm-required: "superhealall.reload"
+no-perm-msg: "&cYou do not have permission to use this command!"

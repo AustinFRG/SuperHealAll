@@ -1,0 +1,11 @@
+name: SuperHealAll
+version: ${project.version}
+main: me.austinfrg.superhealall.SuperHealAll
+api-version: 1.16
+authors: [AustinFRG]
+description: Heal every player on the server by the specified amount.
+commands:
+  healall:
+    description: Heal every player on the server by the specified amount.
+  healallreload:
+    description: Reloads the SuperHealAll config file.
