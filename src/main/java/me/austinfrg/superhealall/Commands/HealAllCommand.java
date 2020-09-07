@@ -25,12 +25,16 @@ public class HealAllCommand implements CommandExecutor {
         if (sender.hasPermission(Objects.requireNonNull(plugin.getConfig().getString("heal-perm-required")))) {
             final Collection<? extends Player> list = Bukkit.getOnlinePlayers();
             final Player[] players = list.toArray(new Player[0]);
+            int amount = Integer.parseInt(args[0]);
             for (final Player allplayers : players) {
                 AttributeInstance checkmaxhp = allplayers.getAttribute(Attribute.GENERIC_MAX_HEALTH);
                 int memhp = (int) allplayers.getHealth();
                 int maxhp = (int) Objects.requireNonNull(checkmaxhp).getValue();
-                if (memhp < maxhp) {
-                    allplayers.setHealth(Double.parseDouble(memhp + args[0]));
+                if (amount > maxhp-memhp) {
+                    allplayers.setHealth(maxhp);
+                }
+                else if (memhp < maxhp) {
+                    allplayers.setHealth(Double.parseDouble(String.valueOf(memhp + amount)));
                 }
             }
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("healed-msg"))));
